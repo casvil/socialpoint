@@ -16,15 +16,21 @@ input[type="file"]:focus, button:focus {
 }
 
 .input {
-  margin-left: 15px;
+  margin: 0 15px;
 }
 
 .input .container {
   margin-top: 8px;
 }
 
-.input .container div {
+.input .container .row {
+  display: flex;
+  align-items: center;
   margin-bottom: 8px;
+}
+
+.row input {
+  margin-right: 3px;
 }
 
 .controls {
@@ -45,10 +51,12 @@ input[type="file"]:focus, button:focus {
   border: none;
   background-color: rgb(250,250,250);
   color: rgb(3,3,3);
+  cursor: pointer;
 }
 
 .process {
-  margin-left: 5px;
+  margin: 0 38px;
+  flex: 0.2 1 0%;
 }
 
 .process:hover {
@@ -67,8 +75,4 @@ input[type="file"]:focus, button:focus {
 .button:hover {
   color: rgb(250,250,250);
   background-color: rgb(3,3,3);
-}
-
-.fileInput {
-  margin-bottom: 15px;
 }

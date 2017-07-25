@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { increment } from './actions';
-import { decrement } from './actions';
 import { addTodo } from './actions';
 
 const counter = (state = 0, action) => {   //state.counter?
