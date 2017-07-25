@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increment } from '../../actions';
 import { addTodo } from '../../actions';
 import FileInput from 'react-file-input';
 
 import LinearProgress from 'material-ui/LinearProgress';
 
 class Tasks extends Component {
-
-  constructor (props) {
-    super(props);
-  }
 
   handleFile (file) {
     this.setState({
@@ -20,15 +15,15 @@ class Tasks extends Component {
     // Object.keys(file).map(key => console.log(key));
   }
 
-  progress (completed) {
-    if (completed > 100) {
-      this.setState({completed: 100});
-    } else {
-      this.setState({completed});
-      const diff = Math.random() * 10;
-      this.timer = setTimeout(() => this.progress(completed + diff), 1000);
-    }
-  }
+  // progress (completed) {
+  //   if (completed > 100) {
+  //     this.setState({completed: 100});
+  //   } else {
+  //     this.setState({completed});
+  //     const diff = Math.random() * 10;
+  //     this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+  //   }
+  // }
 
   handleInputs () {
     const rows = [];
@@ -72,7 +67,6 @@ class Tasks extends Component {
 const mapStateToProps = (state) => ({
   // Map your state to props
   counter: state.counter,
-  todos: state.todos,
 });
 
 const mapDispatchToProps = (dispatch) => ({
