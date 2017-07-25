@@ -11,6 +11,8 @@
   },
   "devDependencies": {
     "eslint": "^4.3.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-react": "^6.4.1",
     "react-file-input": "^0.2.5",
     "react-scripts": "1.0.10"
   },

@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { increment } from './actions';
 import { addTodo } from './actions';
 import FileInput from 'react-file-input';
+import Header from './components/header/';
+import './App.css';
 
 class App extends Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       image: undefined,
@@ -18,29 +20,42 @@ class App extends Component {
       image: file.target.files[0],
     });
 
-    Object.keys(file).map(key => console.log(key));
-    console.log(file.currentTarget);
-  }
-
-  handleChange (event) {
-    console.log('Selected file:', event.target.files[0]);
+    // Object.keys(file).map(key => console.log(key));
   }
 
   handleInputs () {
     const rows = [];
     for (let i = 0; i < this.props.counter; i++) {
-      rows.push(<FileInput />);
+      rows.push(
+        <div>
+          <input
+            type="file"
+            name="fileInput"
+            className="fileInput"
+            key={i}
+            onChange={(event) => this.handleFile(event)}
+            placeholder="Add Image"
+          />
+        </div>
+      );
     }
-    return <div>{rows}</div>;
+    return (
+      <div className="container">
+        <div>
+          {rows}
+        </div>
+      </div>
+    );
   }
 
   render () {
     return (
       <div className="App">
-        <div className="header"></div>
+        <Header />
         <div className="main">
-          <div>
-            <button onClick={this.props.increment}>+</button>
+          <div className="controls">
+            <button className="add" onClick={this.props.increment}>+</button>
+            <span>Click to add another image</span>
           </div>
           <div className="input">
             {this.handleInputs()}

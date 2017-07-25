@@ -7,7 +7,7 @@ const counter = (state = 0, action) => {   //state.counter?
   if (action.type === 'INCREMENT') {
     return state + 1;
   }
-    // this.props.counter += 1;
+  // this.props.counter += 1;
   if (action.type === 'DECREMENT') {
     return state - 1;
     // this.props.counter -= 1;
