@@ -1,5 +1,13 @@
+input[type="file"]:hover {
+  cursor: pointer;
+}
+
+input[type="file"]:focus, button:focus {
+  outline: none;
+}
+
 .App .main {
-  padding: 8px 8px 8px 20px;
+  /*padding: 8px 8px 8px 20px;*/
 }
 
 @keyframes App-logo-spin {
@@ -7,34 +15,56 @@
   to { transform: rotate(360deg); }
 }
 
+.input {
+  margin-left: 15px;
+}
+
 .input .container {
   margin-top: 8px;
 }
 
+.input .container div {
+  margin-bottom: 8px;
+}
+
 .controls {
-  margin: 15px 0;
+  padding: 15px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 22px;
 }
 
 .controls span {
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.button {
+  border-radius: 3px;
+  border: none;
+  background-color: rgb(250,250,250);
+  color: rgb(3,3,3);
+}
+
+.process {
+  margin-left: 5px;
+}
+
+.process:hover {
+  cursor: pointer;
 }
 
 .add {
-  color: rgb(3,3,3);
-  background-color: rgb(250,250,250);
   padding-bottom: 7px;
   margin-right: 8px;
   font-weight: 900;
   text-align: center;
   font-size: 30px;
   line-height: 30px;
-  border-radius: 3px;
-  border: 1px solid black;
 }
 
-.add:hover {
+.button:hover {
   color: rgb(250,250,250);
   background-color: rgb(3,3,3);
 }

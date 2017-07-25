@@ -4,6 +4,9 @@ import { increment } from './actions';
 import { addTodo } from './actions';
 import FileInput from 'react-file-input';
 import Header from './components/header/';
+
+import LinearProgress from 'material-ui/LinearProgress';
+
 import './App.css';
 
 class App extends Component {
@@ -36,14 +39,14 @@ class App extends Component {
             onChange={(event) => this.handleFile(event)}
             placeholder="Add Image"
           />
+          <button className="button process">Process Image</button>
+          <LinearProgress max="100" />
         </div>
       );
     }
     return (
       <div className="container">
-        <div>
-          {rows}
-        </div>
+        {rows}
       </div>
     );
   }
@@ -54,7 +57,7 @@ class App extends Component {
         <Header />
         <div className="main">
           <div className="controls">
-            <button className="add" onClick={this.props.increment}>+</button>
+            <button className="button add" onClick={this.props.increment}>+</button>
             <span>Click to add another image</span>
           </div>
           <div className="input">
