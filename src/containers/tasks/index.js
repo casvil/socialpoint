@@ -35,7 +35,7 @@ class Tasks extends Component {
             name="fileInput"
             className="fileInput"
             key={i}
-            onChange={(event) => this.handleFile(event)}
+            onChange={(event) => this.props.addTodo(event)}
             placeholder="Add Image"
           />
           <button className="button process">Process Image</button>

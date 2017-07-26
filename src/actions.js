@@ -6,8 +6,8 @@ export const decrement = () => ({
   type: 'DECREMENT'
 });
 
-export const addTodo = (text) => ({
+export const addTodo = (imgFile) => ({
   type: 'ADD_TODO',
-  text: text
+  imgFile: imgFile
   //nextId++
 });

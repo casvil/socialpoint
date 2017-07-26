@@ -18,7 +18,7 @@ let nextId=0;
 const todos = (state = [], action) => {
   if (action.type === 'ADD_TODO') {
     nextId += 1;
-    return [...state, {id: nextId, text: action.text}];
+    return [...state, {id: nextId, imgFile: action.imgFile}];
   }
   // console.log(state);
   return state;
