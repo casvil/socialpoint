@@ -4,6 +4,8 @@ import FileInput from 'react-file-input';
 import PropTypes from 'prop-types';
 import LinearProgress from 'material-ui/LinearProgress';
 import { addTodo } from '../../actions';
+import { increment } from '../../actions';
+import { decrement } from '../../actions';
 import './style.css';
 
 class Task extends Component {
@@ -28,12 +30,18 @@ class Task extends Component {
 
   progress (completed) {
     if (completed > 100) {
+      this.setState({loaded: 2});
       this.setState({completed: 100});
     } else {
       this.setState({completed});
       const diff = Math.random() * 10;
       this.timer = setTimeout(() => this.progress(completed + diff), 1000);
     }
+  }
+
+  handleChange (event) {
+    this.props.addTodo(event);
+    this.props.increment();
   }
 
   render () {
@@ -51,6 +59,27 @@ class Task extends Component {
           <button onClick={() => this.displayProgress()} className="button process">Process Image</button>
         </div>
       );
+    } else if (this.state.loaded === 1) {
+      return (
+        <div className="task">
+          <input
+            type="file"
+            name="fileInput"
+            className="fileInput"
+            key={this.props.key}
+            onChange={(event) => this.handleChange(event)}
+            placeholder="Add Image"
+          />
+          <button className="button process">Process Image</button>
+          <LinearProgress
+            max={100}
+            min={0}
+            mode="determinate"
+            style={{flex: 2, marginLeft: 2}}
+            value={this.state.completed}
+          />
+        </div>
+      );
     } else {
       return (
         <div className="task">
@@ -63,13 +92,7 @@ class Task extends Component {
             placeholder="Add Image"
           />
           <button className="button process">Process Image</button>
-          <LinearProgress
-            max={100}
-            min={0}
-            mode="determinate"
-            style={{flex: 2, marginLeft: 2}}
-            value={this.state.completed}
-          />
+          <button onClick={''} className="button process">Download JPG Image</button>
         </div>
       );
     }
@@ -83,11 +106,14 @@ Task.PropTypes = {
 const mapStateToProps = (state) => ({
   // Map your state to props
   counter: state.counter,
+  taskCounter: state.taskCounter,
   todos: state.todos
 });
 
 const mapDispatchToProps = (dispatch) => ({
   // Map your dispatch actions to props
+  increment: () => dispatch(increment()),
+  decrement: () => dispatch(decrement()),
   addTodo: (file) => dispatch(addTodo(file)),
 });
 

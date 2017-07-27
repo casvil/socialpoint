@@ -1,8 +1,21 @@
 import { combineReducers } from 'redux';
+import { decrement } from './actions';
 import { increment } from './actions';
 import { addTodo } from './actions';
 
 const counter = (state = 0, action) => {   //state.counter?
+  if (action.type === 'INCREMENT') {
+    return state + 1;
+  }
+  // this.props.counter += 1;
+  if (action.type === 'DECREMENT') {
+    return state - 1;
+    // this.props.counter -= 1;
+  }
+  return state;
+};
+
+const taskCounter = (state = 0, action) => {   //state.counter?
   if (action.type === 'INCREMENT') {
     return state + 1;
   }
